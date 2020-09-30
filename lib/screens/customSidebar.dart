@@ -46,7 +46,7 @@ class CustomSidebar extends StatelessWidget {
         explicitChildNodes: true,
         label: label,
         child: ConstrainedBox(
-            constraints: const BoxConstraints.expand(width: 304.0),
+            constraints: const BoxConstraints.expand(width: 250.0),
             child: Material(
               color: Colors.blueAccent,
 
@@ -69,16 +69,22 @@ class CustomSidebar extends StatelessWidget {
                       ),
                     ),
                   ),
-                  FlatButton(
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder:
-                      (context) => HomePage()));
+                  ListTile(
 
-                    },
-                    child: sideNavList(
-                      icon: Icons.home,
-                      title: 'Home',
+                    leading: Icon(
+                      Icons.home,
+                      color: Colors.white,
                     ),
+                    title: Text(
+                      "HOME",
+                      style: TextStyle(
+                          color: Colors.white, fontSize: 14.0, fontWeight: FontWeight.w400),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).pop();
+                      if(this.currentPage == "HOME") return;
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
+                    },
                   ),
                   FlatButton(
                     onPressed: (){
@@ -88,7 +94,7 @@ class CustomSidebar extends StatelessWidget {
                     },
                     child: sideNavList(
                         icon: Icons.info,
-                        title: 'About'
+                        title: 'ABOUT'
                         ,),
                   ),
                   FlatButton(
@@ -107,7 +113,7 @@ class CustomSidebar extends StatelessWidget {
                     },
                     child: sideNavList(
                         icon: Icons.people,
-                        title: 'Partners'),
+                        title: 'PARTNERS'),
                   ),
 
                 ],
